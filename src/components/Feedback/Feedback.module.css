@@ -1,3 +1,11 @@
+.hidden {
+  display: none;
+}
+
+.text {
+  font-size: 20px;
+}
+
 .feedbackCard {
   padding-left: 30px;
 }

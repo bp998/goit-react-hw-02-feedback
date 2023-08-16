@@ -9,9 +9,16 @@ class Feedback extends Component {
   };
 
   isVisible = () => {
-    const check = this.state.good + this.state.bad + this.state.neutral;
-    console.log(check);
+    let check = this.state.good + this.state.bad + this.state.neutral;
+    // console.log(check);
     if (check === 0) {
+      check = true;
+      console.log(check);
+      return check;
+    } else {
+      check = false;
+      console.log(check);
+      return check;
     }
   };
 
@@ -48,10 +55,11 @@ class Feedback extends Component {
           Bad
         </button>
         <p>Statistics</p>
-        <div is-visible={this.isVisible()}>
-          {' '}
+        <div className={this.isVisible() ? '' : css.hidden}>
           No feedback Given
-          <p>Good: {this.state.good}</p>
+        </div>
+        <div className={this.isVisible() ? css.hidden : ''}>
+          <p className={css.text}>Good: {this.state.good}</p>
           <p>Neutral: {this.state.neutral}</p>
           <p>Bad: {this.state.bad}</p>
           <p>Total: {this.countTotalFeedback()}</p>
