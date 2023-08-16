@@ -10,16 +10,7 @@ class Feedback extends Component {
 
   isVisible = () => {
     let check = this.state.good + this.state.bad + this.state.neutral;
-    // console.log(check);
-    if (check === 0) {
-      check = true;
-      console.log(check);
-      return check;
-    } else {
-      check = false;
-      console.log(check);
-      return check;
-    }
+    return check === 0 ? (check = true) : (check = false);
   };
 
   handleClick = e => {
@@ -44,7 +35,7 @@ class Feedback extends Component {
   render() {
     return (
       <div className={css.feedbackCard}>
-        <h2 className={css.header}>Please leave feedback</h2>
+        {' '}
         <button type="button" name="good" onClick={this.handleClick}>
           Good
         </button>
@@ -59,7 +50,7 @@ class Feedback extends Component {
           No feedback Given
         </div>
         <div className={this.isVisible() ? css.hidden : ''}>
-          <p className={css.text}>Good: {this.state.good}</p>
+          <p>Good: {this.state.good}</p>
           <p>Neutral: {this.state.neutral}</p>
           <p>Bad: {this.state.bad}</p>
           <p>Total: {this.countTotalFeedback()}</p>
