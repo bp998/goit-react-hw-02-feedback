@@ -8,7 +8,6 @@ export const App = () => {
   return (
     <div>
       <Section title="Please leave feedback">
-        <FeedbackOptions />
         <Feedback />
       </Section>
     </div>

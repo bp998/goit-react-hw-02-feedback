@@ -8,11 +8,6 @@ class Feedback extends Component {
     bad: 0,
   };
 
-  isVisible = () => {
-    let check = this.state.good + this.state.bad + this.state.neutral;
-    return check === 0 ? (check = true) : (check = false);
-  };
-
   handleClick = e => {
     const { name } = e.target;
     this.setState(prevState => {
@@ -20,6 +15,11 @@ class Feedback extends Component {
         [name]: prevState[name] + 1,
       };
     });
+  };
+
+  isVisible = () => {
+    let check = this.state.good + this.state.bad + this.state.neutral;
+    return check === 0 ? (check = true) : (check = false);
   };
 
   countTotalFeedback = () => {
@@ -34,8 +34,7 @@ class Feedback extends Component {
 
   render() {
     return (
-      <div className={css.feedbackCard}>
-        {' '}
+      <div>
         <button type="button" name="good" onClick={this.handleClick}>
           Good
         </button>
